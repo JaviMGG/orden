@@ -38,6 +38,7 @@ fn main() {
                         "pdf" | "docx" | "txt" => home.join("Documentos"),
                         "mp4" | "mkv" | "mov" => home.join("Videos"),
                         "zip" | "tar" | "gz" | "rar" => home.join("Documentos"), // o "Descargas"
+                        "mp3" => home.join("Música"),
                         _ => home.join("Otros"),
                     };
 
