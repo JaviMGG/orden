@@ -1,0 +1,13 @@
+[package]
+name = "orden"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+path = "src/orden.rs"
+name = "orden"
+
+[dependencies]
+clap = { version = "3.2", features = ["derive"] }
+colored = "3.1.1"
+ferris-says = "0.3.1"
