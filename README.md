@@ -30,6 +30,11 @@ Después de la instalación, puedes usar el comando `orden` seguido de la ruta a
 orden <ruta-a-la-carpeta>
 ```
 
+Si es en la carpeta actual:
+```bash
+orden .
+```
+
 ### Ejemplo
 ```bash
 orden /home/usuario/MiCarpetaDesordenada
@@ -45,6 +50,7 @@ Los archivos se organizan en las siguientes categorías:
 - **Documentos**: `.pdf`, `.docx`, `.txt`
 - **Videos**: `.mp4`, `.mkv`, `.mov`
 - **Documentos Comprimidos**: `.zip`, `.tar`, `.gz`, `.rar`
+- **Musica**: `.mp3`
 - **Otros**: Cualquier extensión no listada arriba
 
 ## Notas importantes
