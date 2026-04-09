@@ -1,7 +1,8 @@
 use clap::Parser;
 use colored::*;
+use std::env;
 use std::fs;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 #[derive(Parser)]
 struct Cli {
@@ -17,6 +18,8 @@ fn main() {
         println!("{}", "Error: La ruta proporcionada no es una carpeta.".red());
         return;
     }
+
+    let destino_raiz = destino_raiz(ruta_base);
 
     // Leemos los archivos de la carpeta
     if let Ok(entradas) = fs::read_dir(ruta_base) {
@@ -34,11 +37,22 @@ fn main() {
                         _ => "Otros",
                     };
 
-                    organizar_archivo(&path, ruta_base, destino);
+                    organizar_archivo(&path, &destino_raiz, destino);
                 }
             }
         }
     }
+}
+
+fn destino_raiz(ruta_base: &Path) -> PathBuf {
+    if let Some(home_dir) = env::var_os("HOME") {
+        let home_path = PathBuf::from(home_dir);
+        if ruta_base.starts_with(&home_path) {
+            return home_path;
+        }
+    }
+
+    ruta_base.to_path_buf()
 }
 
 fn organizar_archivo(archivo: &Path, ruta_base: &Path, carpeta_destino: &str) {
