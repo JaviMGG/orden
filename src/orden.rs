@@ -51,7 +51,7 @@ fn organizar_archivo(archivo: &Path, ruta_base: &Path, carpeta_destino: &str) {
     let destino_final = nueva_carpeta.join(nombre_archivo);
 
     match fs::rename(archivo, &destino_final) {
-        Ok(_) => println!("{} {:?}", "Movido:".green(), nombre_archivo),
+        Ok(_) => println!("{} {:?} a: {:?}", "Movido:".green(), nombre_archivo, destino_final),
         Err(e) => println!("{} {:?} -> {}", "Error:".red(), nombre_archivo, e),
     }
 }
